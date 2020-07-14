@@ -1,0 +1,21 @@
+INSERT_UPDATE ConcertInfo; code[unique = true]; band(code); songs; openOrClose(code)
+; GREAT CONCERT; A001; one, two, three; openair
+
+INSERT_UPDATE Instrument; name[unique=true][lang=en];cost
+; giutar; 15
+; drum; 20
+
+INSERT_UPDATE Bands; code; name; history; albumSales
+; CB; ChikiBriki; no history; 4
+
+INSERT MusicType; code
+; rock
+; classic
+; rap
+
+INSERT_UPDATE CityAndBand; name[unique=true] city2Band
+; 1; Minsk->Beatls
+
+INSERT_UPDATE Band; code[unique=true]; openOrClose(code)
+; A001; openair
+; A002; openair

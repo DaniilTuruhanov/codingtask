@@ -1,0 +1,34 @@
+INSERT_UPDATE MusicType;code[unique=true]
+                       ;rock
+                       ;jazz
+                       ;classical
+                       ;pop
+                       ;gospel
+                       ;choral
+                       ;sixties
+                       ;seventies
+                       ;eighties
+                       ;nineties
+                       ;maleVocals
+                       ;femaleVocals
+
+INSERT_UPDATE Band;code[unique=true];name;albumSales
+                  ;A001;yRock;1000000
+                  ;A006;yBand;
+                  ;A003;yJazz;7
+                  ;A004;Banned;427
+                  ;A002;Sirken;2000
+                  ;A005;The Choir;49000
+                  ;A007;The Quiet;1200
+
+INSERT_UPDATE Band;code[unique=true];types(code)
+                  ;A001;rock,eighties
+                  ;A006;rock,sixties,seventies,eighties,maleVocals
+                  ;A003;jazz,femaleVocals
+                  ;A004;nineties,maleVocals,pop
+                  ;A002;choral,pop
+                  ;A005;gospel
+                  ;A007;choral,classical
+
+INSERT_UPDATE MinConstraint;id[unique=true];severity(code,itemtype(code));active;annotation;descriptor(enclosingType(code),qualifier);message[lang=de];message[lang=en];value
+                           ;AlbumSalesMustNotBeNegative;ERROR:Severity;true;javax.validation.constraints.Min;Band:albumSales;Albumverkäufe dürfen nicht negativ sein;Album sales must not be negative;0
