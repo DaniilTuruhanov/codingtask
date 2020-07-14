@@ -138,6 +138,7 @@
     <bean name="productConverter" class="concerttours.converters.ProductConverter"/>
     <bean name="priceConverter" class="concerttours.converters.PriceConverter"/>
     <bean id="concertDaysUntilAttributeHandler" class="concerttours.attributehandlers.ConcertDaysUntilAttributeHandler"/>
+    <bean id="producerAttributeHandler" class="concerttours.attributehandlers.ProducerAttributeHandler"/>
 
     <bean id="concerttourEventListener" class="concerttours.events.listeners.NewBandEventListener" parent="abstractEventListener">
         <property name="modelService" ref="modelService" />

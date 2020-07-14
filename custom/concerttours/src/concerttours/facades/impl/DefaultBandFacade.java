@@ -1,4 +1,5 @@
 package concerttours.facades.impl;
+import concerttours.model.ProducerModel;
 import de.hybris.platform.core.model.media.MediaContainerModel;
 import de.hybris.platform.core.model.media.MediaFormatModel;
 import de.hybris.platform.core.model.product.ProductModel;
@@ -64,9 +65,10 @@ public class DefaultBandFacade implements BandFacade
             for (final ProductModel tour : band.getTours())
             {
                 final TourSummaryData summary = new TourSummaryData();
+                ProducerModel producer = tour.getProducer();
+                summary.setProducer(producer.getName());
                 summary.setId(tour.getCode());
                 summary.setTourName(tour.getName(Locale.ENGLISH));
-                // making the big assumption that all variants are concerts and ignore product catalogs
                 summary.setNumberOfConcerts(Integer.toString(tour.getVariants().size()));
                 tourHistory.add(summary);
             }

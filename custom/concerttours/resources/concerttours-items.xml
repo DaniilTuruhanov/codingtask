@@ -48,6 +48,16 @@
                 <modifiers read="true" write="true" search="true" optional="true" />
             </targetElement>
         </relation>
+
+        <relation code="Product2Producer" autocreate="true" generate="false" localized="false">
+            <sourceElement qualifier="tours" type="Product" collectiontype="set" cardinality="many" ordered="false">
+                <modifiers read="true" write="true" search="true" optional="true" />
+            </sourceElement>
+            <targetElement qualifier="producer" type="Producer" cardinality="one">
+                <modifiers read="true" write="true" search="true" optional="true" />
+            </targetElement>
+        </relation>
+
         <relation code="Concert2Band" autocreate="true" generate="false" localized="false">
             <sourceElement qualifier="bands" type="Band" cardinality="one">
                 <modifiers read="true" write="true" search="true" optional="true"/>
@@ -214,6 +224,30 @@
                     <description>Sender</description>
                     <modifiers initial="true"/>
                     <persistence type="property"/>
+                </attribute>
+            </attributes>
+        </itemtype>
+
+        <itemtype code="Producer" autocreate="true" generate="true">
+            <deployment table="Producer" typecode="12349"/>
+            <attributes>
+                <attribute qualifier="id" type="java.lang.String">
+                    <modifiers write="true" read="true"/>
+                    <persistence type="property"/>
+                </attribute>
+                <attribute qualifier="firstName" type="java.lang.String">
+                    <description>First name</description>
+                    <modifiers write="true" read="true"/>
+                    <persistence type="property"/>
+                </attribute>
+                <attribute qualifier="lastName" type="java.lang.String">
+                    <description>First name</description>
+                    <modifiers write="true" read="true"/>
+                    <persistence type="property"/>
+                </attribute>
+                <attribute qualifier="name" type="java.lang.String">
+                    <modifiers write="true" read="true"/>
+                    <persistence type="dynamic" attributeHandler="producerAttributeHandler"/>
                 </attribute>
             </attributes>
         </itemtype>
